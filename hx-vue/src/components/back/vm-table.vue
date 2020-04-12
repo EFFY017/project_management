@@ -8,7 +8,7 @@
         <div class="table-style">
         </div>
         <div class="search-bar">
-          <Input placeholder="Please enter ..." v-model="keyword" style="width: 300px"></Input>
+          <el-input placeholder="Please enter ..." v-model="keyword" style="width: 300px"></el-input>
           <Button type="ghost" @click="search"><i class="fa fa-search"></i></Button>
         </div>
       </Row>
@@ -35,7 +35,7 @@
         v-on:on-ok="editOk">
         <Form :label-width="50">
           <Form-item v-for="(value, key) in dataEdit" :label="convertKey(key)" :key="key">
-            <Input v-model="dataEdit[key]" :placeholder="'Please enter' + key"></Input>
+            <el-input v-model="dataEdit[key]" :placeholder="'Please enter' + key"></el-input>
           </Form-item>
         </Form>
     </Modal>
@@ -47,7 +47,7 @@
         v-on:on-ok="addOk">
         <Form :label-width="50">
           <Form-item v-for="item in columns" :label="item.title" :key="item.id">
-            <Input v-model="dataAdd[item.key]" :placeholder="'Please enter' + item.title"></Input>
+            <el-input v-model="dataAdd[item.key]" :placeholder="'Please enter' + item.title"></el-input>
           </Form-item>
         </Form>
     </Modal>
