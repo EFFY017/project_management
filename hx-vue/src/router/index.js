@@ -9,6 +9,10 @@ import MyIndex from '../components/home/MyIndex'
 import MyAuidt from '../components/Audit/Audit_Index'
 import ManagerRAuidt from '../components/Audit/Manager_Audit/Manager_r_audit.vue'
 import ManagerRWorkTime from '../components/Audit/Manager_Audit/Manager_r_workTime.vue'
+import BackLogin from '../components/back/Back_Login'
+import BackHome from '../components/back/BackHome'
+import BackAccounter from '../components/back/BackAccounter'
+import BackWorker from '../components/back/BackWorker.vue'
 
 Vue.use(Router)
 
@@ -76,6 +80,35 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/back/login',
+      name: 'BackLogin',
+      component: BackLogin
+    },
+    {
+      path: '/back/home',
+      name: 'BackHome',
+      component: BackHome,
+      redirect: '/back/accounter',
+      children: [
+        {
+          path: '/back/accounter',
+          name: 'BackAccounter',
+          component: BackAccounter,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: '/back/worker',
+          name: 'BackWorker',
+          component: BackWorker,
+          meta: {
+            requireAuth: true
+          }
+        }
+      ]
     }
   ]
 })
